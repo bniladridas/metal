@@ -1,0 +1,32 @@
+{
+  "profiles": {
+    "development": {
+      "optimization_level": "none",
+      "debug_symbols": true,
+      "fast_math": false,
+      "threadgroup_size": {
+        "width": 8,
+        "height": 8
+      }
+    },
+    "performance": {
+      "optimization_level": "aggressive",
+      "debug_symbols": false,
+      "fast_math": true,
+      "threadgroup_size": {
+        "width": 16,
+        "height": 16
+      }
+    },
+    "memory_optimized": {
+      "optimization_level": "size",
+      "debug_symbols": false,
+      "fast_math": false,
+      "threadgroup_size": {
+        "width": 32,
+        "height": 32
+      }
+    }
+  },
+  "default_profile": "performance"
+}

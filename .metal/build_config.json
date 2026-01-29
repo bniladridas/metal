@@ -1,0 +1,22 @@
+{
+  "metal_compiler": {
+    "sdk": "macosx",
+    "deployment_target": "11.0",
+    "architectures": ["arm64", "x86_64"],
+    "optimization": {
+      "level": "3",
+      "fast_math": true,
+      "vectorize": true
+    }
+  },
+  "shader_validation": {
+    "enabled": true,
+    "warnings_as_errors": false,
+    "unused_variable_warnings": true
+  },
+  "output": {
+    "library_name": "default.metallib",
+    "intermediate_files": false,
+    "verbose": false
+  }
+}

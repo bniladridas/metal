@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Demo",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/.build/debug/demo",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "swift build"
+    }
+  ]
+}

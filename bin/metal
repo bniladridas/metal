@@ -1,0 +1,67 @@
+#!/usr/bin/env swift
+
+import Foundation
+
+// Metal project CLI
+struct MetalCLI {
+    func run() {
+        let args = CommandLine.arguments
+
+        guard args.count > 1 else {
+            showHelp()
+            return
+        }
+
+        let command = args[1]
+
+        switch command {
+        case "build":
+            runCommand("swift", args: ["build"])
+        case "test":
+            runCommand("swift", args: ["test"])
+        case "demo":
+            runCommand("swift", args: ["run", "demo"])
+        case "validate":
+            runCommand("swift", args: ["hack/validate_metal.swift"])
+        case "e2e":
+            runCommand("swift", args: ["tools/e2e_test.swift"])
+        case "package":
+            runCommand("swift", args: ["tools/package.swift"])
+        case "explore":
+            runCommand("swift", args: ["apple/gpu_capabilities.swift"])
+        case "help", "--help", "-h":
+            showHelp()
+        default:
+            print("Unknown command: \(command)")
+            showHelp()
+        }
+    }
+
+    private func showHelp() {
+        print("""
+        metal - Metal image processing toolkit
+
+        Usage: metal <command>
+
+        Commands:
+          build     Build the project
+          test      Run unit tests
+          demo      Run demo application
+          validate  Validate Metal shaders
+          e2e       Run end-to-end tests
+          package   Create release package
+          explore   Explore GPU capabilities
+          help      Show this help
+        """)
+    }
+
+    private func runCommand(_ command: String, args: [String]) {
+        let process = Process()
+        process.launchPath = "/usr/bin/\(command)"
+        process.arguments = args
+        process.launch()
+        process.waitUntilExit()
+    }
+}
+
+MetalCLI().run()

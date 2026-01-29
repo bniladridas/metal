@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "sswg.swift-lang",
+    "ms-vscode.cpptools",
+    "redhat.vscode-yaml",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-json"
+  ]
+}

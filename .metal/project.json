@@ -1,0 +1,25 @@
+{
+  "name": "metal",
+  "version": "1.0.0",
+  "description": "High-performance GPU-accelerated image processing for Swift using Metal compute shaders",
+  "author": "metal contributors",
+  "license": "MIT",
+  "metal": {
+    "version": "3.0",
+    "target": "macos",
+    "shaders": [
+      "shaders.metal",
+      "Sources/metal/Shaders/ImageProcessing.metal"
+    ],
+    "kernels": [
+      "gaussianBlur",
+      "sobelEdgeDetection",
+      "convolution"
+    ]
+  },
+  "build": {
+    "optimization": "release",
+    "debug_info": true,
+    "warnings_as_errors": false
+  }
+}

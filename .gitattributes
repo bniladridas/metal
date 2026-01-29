@@ -1,0 +1,3 @@
+*.swift linguist-language=Swift
+*.metal linguist-language=Metal
+*.md linguist-documentation

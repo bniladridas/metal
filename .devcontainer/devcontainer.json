@@ -1,0 +1,33 @@
+{
+  "name": "Metal Development Container",
+  "image": "swift:5.9",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "sswg.swift-lang",
+        "ms-vscode.cpptools",
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "swift.path": "/usr/bin/swift",
+        "files.associations": {
+          "*.metal": "cpp"
+        }
+      }
+    }
+  },
+
+  "postCreateCommand": "swift --version",
+
+  "remoteUser": "vscode"
+}

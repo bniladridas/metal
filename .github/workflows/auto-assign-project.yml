@@ -1,0 +1,31 @@
+---
+name: Auto Assign to Project
+
+on:
+  pull_request:
+    types: [opened, reopened]
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  assign-to-project:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Add to Project
+        if: github.event_name == 'pull_request' || github.event_name == 'issues'
+        uses: actions/add-to-project@v0.5.0
+        with:
+          project-url: https://github.com/users/bniladridas/projects/21
+          github-token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Log Assignment
+        if: github.event_name == 'pull_request' || github.event_name == 'issues'
+        run: |
+          item_num="${{ github.event.pull_request.number || github.event.issue.number }}"
+          echo "[INFO] Added #$item_num to Forge project"
+          echo "[INFO] Project: https://github.com/users/bniladridas/projects/21"

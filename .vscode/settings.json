@@ -1,0 +1,13 @@
+{
+  "swift.path": "/usr/bin/swift",
+  "swift.buildPath": ".build",
+  "files.associations": {
+    "*.metal": "cpp"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "yaml.validate": true,
+  "yaml.format.enable": true
+}
